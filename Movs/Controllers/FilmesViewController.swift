@@ -36,6 +36,11 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
         carregandoDados(pag: self.pag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("reload")
+        self.collection.reloadData()
+    }
+    
     func carregandoDados(pag: Int){
         do{
             self.result.append(contentsOf: try FilmeServices.getFilmes(pag: pag))
@@ -93,11 +98,10 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.viewFavorito.layer.cornerRadius = 10
         cell.viewFavorito.layer.maskedCorners = [.layerMinXMaxYCorner]
         cell.viewFavorito.layer.masksToBounds = true
+                
+        let favoritado = Favoritos.verificaSeFilmeFavoritado(id: String(result[indexPath.row].id))
         
-//        favorite_gray
-//        favorite_full
-        
-        result[indexPath.item].favorito == true ? cell.btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal) : cell.btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
+        favoritado == true ? cell.btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal) : cell.btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
         
         cell.filme = result[indexPath.item]
 
@@ -120,7 +124,6 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        
         
         if offsetY > contentHeight - scrollView.frame.height {
             if !carregando {

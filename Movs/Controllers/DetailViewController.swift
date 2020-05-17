@@ -13,15 +13,13 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var imgPoster: UIImageView!
     @IBOutlet weak var imgFundo: UIImageView!
-    
-    
+    @IBOutlet weak var viewFavorito: UIView!
+    @IBOutlet weak var btnFavorito: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
-    
     var filmes = Filmes()
     var row : Int = 0
 
-    
     override func viewDidLoad() {
 
         do{
@@ -30,27 +28,26 @@ class DetailViewController: UIViewController {
             print("erro ao carregar detalhes do filme")
         }
 
-        super.viewDidLoad()
-        print(filmes.generosNomes)
-        
         configurandoFundo()
         configurandoPoster()
-                
-        
-    }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-            
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.tintColor = UIColor.Branco()
         self.tabBarController?.tabBar.isHidden = true
 
+        viewFavorito.layer.cornerRadius = 10
+        viewFavorito.layer.maskedCorners = [.layerMaxXMinYCorner]
+        viewFavorito.layer.masksToBounds = true
+        
+        filmes.favorito == true ? btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal) : btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
+
+        super.viewDidLoad()
+        
     }
-    
+            
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isTranslucent = false
@@ -75,6 +72,18 @@ class DetailViewController: UIViewController {
     }
 
     
+    @IBAction func btnFavorito(_ sender: Any) {
+        if !filmes.favorito {
+            filmes.favorito = true
+            btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal)
+            Favoritos.inserirFavoritos(filme: filmes)
+        } else {
+            filmes.favorito = false
+            btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
+            Favoritos.apagarFavoritos(filme: filmes)
+        }
+
+    }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {

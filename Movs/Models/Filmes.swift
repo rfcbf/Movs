@@ -152,4 +152,40 @@ extension Favoritos {
         
     }
     
+    static func getTodosFavoritos() -> [Filmes] {
+        var array = [Filmes]()
+        
+        let fetchRequest: NSFetchRequest<Favoritos> = Favoritos.fetchRequest()
+        
+        do {
+            let fetchResult = try context().fetch(fetchRequest)
+            
+            for item in fetchResult{
+                
+                let result = Filmes(id: Int((item.id! as NSString).intValue) ,
+                                    title: item.title!,
+                                    descricao: item.descricao!,
+                                    ano: item.ano!,
+                                    adulto: item.adulto,
+                                    imagemFundo: item.imagemFundo!,
+                                    generosID: [],
+                                    generosNomes: [],
+                                    producao: [],
+                                    linguagemOriginal: item.linguagemOriginal!,
+                                    popularidade: item.popularidade,
+                                    poster: item.poster!,
+                                    mediaVoto: item.mediaVoto,
+                                    totalVotos: item.totalVotos,
+                                    favorito: true)
+                
+                array.append(result)
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return array
+    }
+    
 }

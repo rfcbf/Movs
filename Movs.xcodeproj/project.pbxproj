@@ -11,7 +11,6 @@
 		8825E821246C9D9200002FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E820246C9D9200002FC3 /* AppDelegate.swift */; };
 		8825E823246C9D9200002FC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E822246C9D9200002FC3 /* SceneDelegate.swift */; };
 		8825E825246C9D9200002FC3 /* FilmesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E824246C9D9200002FC3 /* FilmesViewController.swift */; };
-		8825E827246C9D9200002FC3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E826246C9D9200002FC3 /* SecondViewController.swift */; };
 		8825E82A246C9D9200002FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E828246C9D9200002FC3 /* Main.storyboard */; };
 		8825E82F246C9D9300002FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8825E82E246C9D9300002FC3 /* Assets.xcassets */; };
 		8825E832246C9D9300002FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E830246C9D9300002FC3 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,8 @@
 		88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */; };
 		888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E502471E12C0067491F /* Movs.xcdatamodeld */; };
 		888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5A2471E2420067491F /* Model.xcmappingmodel */; };
+		888C2E5D2471EE020067491F /* FavoritosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5C2471EE020067491F /* FavoritosViewController.swift */; };
+		888C2E5F2471EE8D0067491F /* FavoritosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5E2471EE8D0067491F /* FavoritosTableViewCell.swift */; };
 		88CE3477246EEA7900A62E2C /* exemploPoster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88CE3476246EEA7900A62E2C /* exemploPoster.jpg */; };
 		88CE3479246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE3478246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift */; };
 		88CE347D246F13EB00A62E2C /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CE347C246F13EB00A62E2C /* Detail.storyboard */; };
@@ -59,7 +60,6 @@
 		8825E820246C9D9200002FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8825E822246C9D9200002FC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8825E824246C9D9200002FC3 /* FilmesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmesViewController.swift; sourceTree = "<group>"; };
-		8825E826246C9D9200002FC3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8825E829246C9D9200002FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8825E82E246C9D9300002FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8825E831246C9D9300002FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		888C2E542471E1870067491F /* Favoritos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favoritos+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		888C2E592471E20D0067491F /* Movs 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Movs 2.xcdatamodel"; sourceTree = "<group>"; };
 		888C2E5A2471E2420067491F /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
+		888C2E5C2471EE020067491F /* FavoritosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosViewController.swift; sourceTree = "<group>"; };
+		888C2E5E2471EE8D0067491F /* FavoritosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosTableViewCell.swift; sourceTree = "<group>"; };
 		88CE3476246EEA7900A62E2C /* exemploPoster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = exemploPoster.jpg; sourceTree = "<group>"; };
 		88CE3478246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		88CE347C246F13EB00A62E2C /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				88CE3478246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift */,
 				88FD4FDD24718EBD00C10BC9 /* GenerosTableViewCell.swift */,
 				88FD4FDF2471966C00C10BC9 /* OutrosTableViewCell.swift */,
+				888C2E5E2471EE8D0067491F /* FavoritosTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -237,8 +240,8 @@
 			children = (
 				88CE347B246F098F00A62E2C /* Cells */,
 				8825E824246C9D9200002FC3 /* FilmesViewController.swift */,
-				8825E826246C9D9200002FC3 /* SecondViewController.swift */,
 				88CE347E246F18B600A62E2C /* DetailViewController.swift */,
+				888C2E5C2471EE020067491F /* FavoritosViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -451,10 +454,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				88CE347F246F18B600A62E2C /* DetailViewController.swift in Sources */,
+				888C2E5D2471EE020067491F /* FavoritosViewController.swift in Sources */,
 				88FD4FDE24718EBD00C10BC9 /* GenerosTableViewCell.swift in Sources */,
 				88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */,
 				88FD4FE02471966C00C10BC9 /* OutrosTableViewCell.swift in Sources */,
-				8825E827246C9D9200002FC3 /* SecondViewController.swift in Sources */,
+				888C2E5F2471EE8D0067491F /* FavoritosTableViewCell.swift in Sources */,
 				88DCD0CB246DEBDE00AC67AE /* Utils.swift in Sources */,
 				8825E825246C9D9200002FC3 /* FilmesViewController.swift in Sources */,
 				8825E821246C9D9200002FC3 /* AppDelegate.swift in Sources */,

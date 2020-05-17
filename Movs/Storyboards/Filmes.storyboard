@@ -44,7 +44,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NlH-7q-BRl">
                                                             <rect key="frame" x="8" y="8" width="146" height="31"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <color key="textColor" red="0.87708777189999998" green="0.72775429489999999" blue="0.31939977409999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -52,27 +52,29 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <view opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6v-2u-vJ4">
+                                                <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6v-2u-vJ4">
                                                     <rect key="frame" x="115" y="0.0" width="47" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnm-er-Z4u">
-                                                            <rect key="frame" x="3.6666666666666714" y="5" width="40" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnm-er-Z4u">
+                                                            <rect key="frame" x="4" y="5" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                             <state key="normal" image="favorite_gray">
-                                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="titleShadowColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnFavoritar:" destination="jRB-rw-c1L" eventType="touchUpInside" id="d57-ms-P3w"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="btnFavorito" destination="hnm-er-Z4u" id="hN2-LW-rO7"/>
+                                            <outlet property="btnFavorito" destination="hnm-er-Z4u" id="Jcz-9x-YpE"/>
                                             <outlet property="imagem" destination="Vjs-9u-FWx" id="4Ic-ak-fxg"/>
                                             <outlet property="lblNome" destination="NlH-7q-BRl" id="d8D-Rp-tcj"/>
                                             <outlet property="viewFavorito" destination="N6v-2u-vJ4" id="CpX-fD-7XN"/>

@@ -13,7 +13,6 @@
 		8825E825246C9D9200002FC3 /* FilmesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E824246C9D9200002FC3 /* FilmesViewController.swift */; };
 		8825E827246C9D9200002FC3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E826246C9D9200002FC3 /* SecondViewController.swift */; };
 		8825E82A246C9D9200002FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E828246C9D9200002FC3 /* Main.storyboard */; };
-		8825E82D246C9D9200002FC3 /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8825E82B246C9D9200002FC3 /* Movs.xcdatamodeld */; };
 		8825E82F246C9D9300002FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8825E82E246C9D9300002FC3 /* Assets.xcassets */; };
 		8825E832246C9D9300002FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E830246C9D9300002FC3 /* LaunchScreen.storyboard */; };
 		8825E83D246C9D9300002FC3 /* MovsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E83C246C9D9300002FC3 /* MovsTests.swift */; };
@@ -21,6 +20,8 @@
 		8825E856246CB0C400002FC3 /* Filmes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E855246CB0C400002FC3 /* Filmes.storyboard */; };
 		8825E858246CB17700002FC3 /* Favoritos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E857246CB17700002FC3 /* Favoritos.storyboard */; };
 		88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */; };
+		888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E502471E12C0067491F /* Movs.xcdatamodeld */; };
+		888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5A2471E2420067491F /* Model.xcmappingmodel */; };
 		88CE3477246EEA7900A62E2C /* exemploPoster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88CE3476246EEA7900A62E2C /* exemploPoster.jpg */; };
 		88CE3479246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE3478246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift */; };
 		88CE347D246F13EB00A62E2C /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CE347C246F13EB00A62E2C /* Detail.storyboard */; };
@@ -60,7 +61,6 @@
 		8825E824246C9D9200002FC3 /* FilmesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmesViewController.swift; sourceTree = "<group>"; };
 		8825E826246C9D9200002FC3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8825E829246C9D9200002FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8825E82C246C9D9200002FC3 /* Movs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movs.xcdatamodel; sourceTree = "<group>"; };
 		8825E82E246C9D9300002FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8825E831246C9D9300002FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8825E833246C9D9300002FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +73,11 @@
 		8825E855246CB0C400002FC3 /* Filmes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filmes.storyboard; sourceTree = "<group>"; };
 		8825E857246CB17700002FC3 /* Favoritos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favoritos.storyboard; sourceTree = "<group>"; };
 		88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmesCollectionViewCell.swift; sourceTree = "<group>"; };
+		888C2E512471E12C0067491F /* Movs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movs.xcdatamodel; sourceTree = "<group>"; };
+		888C2E532471E1870067491F /* Favoritos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favoritos+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		888C2E542471E1870067491F /* Favoritos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favoritos+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		888C2E592471E20D0067491F /* Movs 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Movs 2.xcdatamodel"; sourceTree = "<group>"; };
+		888C2E5A2471E2420067491F /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
 		88CE3476246EEA7900A62E2C /* exemploPoster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = exemploPoster.jpg; sourceTree = "<group>"; };
 		88CE3478246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		88CE347C246F13EB00A62E2C /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -199,7 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				8825E822246C9D9200002FC3 /* SceneDelegate.swift */,
-				8825E82B246C9D9200002FC3 /* Movs.xcdatamodeld */,
+				888C2E502471E12C0067491F /* Movs.xcdatamodeld */,
+				888C2E5A2471E2420067491F /* Model.xcmappingmodel */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 		88DCD0CD246DEC1600AC67AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				888C2E532471E1870067491F /* Favoritos+CoreDataClass.swift */,
+				888C2E542471E1870067491F /* Favoritos+CoreDataProperties.swift */,
 				88DCD0CF246DF19D00AC67AE /* Filmes.swift */,
 			);
 			path = Models;
@@ -450,13 +458,14 @@
 				88DCD0CB246DEBDE00AC67AE /* Utils.swift in Sources */,
 				8825E825246C9D9200002FC3 /* FilmesViewController.swift in Sources */,
 				8825E821246C9D9200002FC3 /* AppDelegate.swift in Sources */,
-				8825E82D246C9D9200002FC3 /* Movs.xcdatamodeld in Sources */,
 				88DCD0D2246DF60100AC67AE /* FilmeServices.swift in Sources */,
+				888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */,
 				88CE3479246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift in Sources */,
 				88DCD0C9246DEB8200AC67AE /* Constantes.swift in Sources */,
 				88FD4FDC247187EA00C10BC9 /* TotalizadoresTableViewCell.swift in Sources */,
 				8825E823246C9D9200002FC3 /* SceneDelegate.swift in Sources */,
 				88DCD0C6246DE40D00AC67AE /* Cores.swift in Sources */,
+				888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */,
 				88DCD0D0246DF19D00AC67AE /* Filmes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,12 +801,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8825E82B246C9D9200002FC3 /* Movs.xcdatamodeld */ = {
+		888C2E502471E12C0067491F /* Movs.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8825E82C246C9D9200002FC3 /* Movs.xcdatamodel */,
+				888C2E592471E20D0067491F /* Movs 2.xcdatamodel */,
+				888C2E512471E12C0067491F /* Movs.xcdatamodel */,
 			);
-			currentVersion = 8825E82C246C9D9200002FC3 /* Movs.xcdatamodel */;
+			currentVersion = 888C2E592471E20D0067491F /* Movs 2.xcdatamodel */;
 			path = Movs.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

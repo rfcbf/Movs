@@ -93,6 +93,13 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.viewFavorito.layer.cornerRadius = 10
         cell.viewFavorito.layer.maskedCorners = [.layerMinXMaxYCorner]
         cell.viewFavorito.layer.masksToBounds = true
+        
+//        favorite_gray
+//        favorite_full
+        
+        result[indexPath.item].favorito == true ? cell.btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal) : cell.btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
+        
+        cell.filme = result[indexPath.item]
 
         cell.lblNome.text = result[indexPath.item].title
         cell.imagem.sd_setImage(with: urlImagem, placeholderImage: UIImage(named: "placeholder.png"), options: [.refreshCached, .progressiveLoad]) 

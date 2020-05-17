@@ -40,6 +40,9 @@ class FilmeServices: NSObject {
                             generosFilme.append(genero.intValue)
                         }
                         
+                        let favoritado = Favoritos.verificaSeFilmeFavoritado(id: subJson["id"].stringValue)
+//                        let favoritado = false
+                        
                         let filme = Filmes(id: subJson["id"].intValue,
                                            title: subJson["title"].stringValue,
                                            descricao: subJson["overview"].stringValue,
@@ -53,7 +56,10 @@ class FilmeServices: NSObject {
                                            popularidade: subJson["popularity"].doubleValue,
                                            poster: subJson["poster_path"].stringValue,
                                            mediaVoto: subJson["vote_average"].doubleValue,
-                                           totalVotos: subJson["vote_count"].doubleValue)
+                                           totalVotos: subJson["vote_count"].doubleValue,
+                                           favorito: favoritado)
+                        
+                        
                         
                         filmes.append(filme)
                         

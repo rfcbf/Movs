@@ -12,15 +12,20 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        UITabBar.appearance().tintColor = UIColor.AzulEscuro()
+        UITabBar.appearance().barTintColor = UIColor.AmareloClaro()
+        UITabBar.appearance().unselectedItemTintColor = UIColor.AmareloEscuro()
+        
+        UINavigationBar.appearance().barTintColor = UIColor.AmareloClaro()
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.AzulEscuro()]
+
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -79,4 +84,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

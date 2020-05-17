@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.1.0)
+  - DeviceKit (3.2.0)
+  - SDWebImage (5.8.0):
+    - SDWebImage/Core (= 5.8.0)
+  - SDWebImage/Core (5.8.0)
+  - SwiftyJSON (5.0.0)
+  - TagListView (1.4.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.1)
+  - DeviceKit
+  - SDWebImage
+  - SwiftyJSON
+  - TagListView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DeviceKit
+    - SDWebImage
+    - SwiftyJSON
+    - TagListView
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  DeviceKit: d081659419cce07c0b5239dbc9fb39ed7413c7fe
+  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
+
+PODFILE CHECKSUM: 0d97046854cebe7cd5e45ee2ab434a6cb62a978b
+
+COCOAPODS: 1.9.1

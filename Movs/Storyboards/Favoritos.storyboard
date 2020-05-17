@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favoritos-->
+        <scene sceneID="Ayh-rt-MhH">
+            <objects>
+                <viewController id="OHg-5Q-rCd" customClass="SecondViewController" customModule="Movs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhE-aA-tyF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gFx-W9-V2T">
+                                <rect key="frame" x="106" y="426.5" width="202" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUY-aA-S4u">
+                                <rect key="frame" x="99.5" y="477.5" width="215" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EUY-aA-S4u" firstAttribute="top" secondItem="gFx-W9-V2T" secondAttribute="bottom" constant="8" symbolic="YES" id="Pbb-q6-yEr"/>
+                            <constraint firstAttribute="centerY" secondItem="gFx-W9-V2T" secondAttribute="centerY" id="jm7-cU-wy3"/>
+                            <constraint firstItem="EUY-aA-S4u" firstAttribute="centerX" secondItem="gFx-W9-V2T" secondAttribute="centerX" id="nyp-hS-eNz"/>
+                            <constraint firstAttribute="centerX" secondItem="gFx-W9-V2T" secondAttribute="centerX" id="q9Q-uz-gSR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dsQ-gA-6Ye"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favoritos" id="Afu-zY-wW4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1IL-kG-9Jo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="309"/>
+        </scene>
+        <!--Favoritos-->
+        <scene sceneID="7mJ-01-LKR">
+            <objects>
+                <navigationController storyboardIdentifier="favoritos" title="Favoritos" automaticallyAdjustsScrollViewInsets="NO" id="Jyo-vo-dGy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="favorite_empty" id="HFz-zZ-DTo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TI2-A7-Wf6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.67248755689999995" green="0.4688129425" blue="0.093657575549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.67248755689999995" green="0.4688129425" blue="0.093657575549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OHg-5Q-rCd" kind="relationship" relationship="rootViewController" id="q5Y-bH-tz1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2GL-qH-Tl3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="309"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="favorite_empty" width="22" height="21"/>
+    </resources>
+</document>

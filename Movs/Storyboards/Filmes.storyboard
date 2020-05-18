@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rbf-Vo-M9h">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rbf-Vo-M9h">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Phc-Cy-yGF">
                                     <size key="itemSize" width="162" height="270"/>
@@ -86,12 +85,14 @@
                                     <outlet property="delegate" destination="dpF-28-bgP" id="Xky-QZ-Kwt"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvo-xt-J66">
-                                <rect key="frame" x="0.0" y="88" width="375" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Rbf-Vo-M9h" firstAttribute="top" secondItem="0W2-oW-MaK" secondAttribute="top" id="3s2-xl-IfK"/>
+                            <constraint firstItem="Rbf-Vo-M9h" firstAttribute="trailing" secondItem="0W2-oW-MaK" secondAttribute="trailing" id="JPl-B5-r4P"/>
+                            <constraint firstItem="Rbf-Vo-M9h" firstAttribute="leading" secondItem="0W2-oW-MaK" secondAttribute="leading" id="ZNN-RE-wJ1"/>
+                            <constraint firstAttribute="bottom" secondItem="Rbf-Vo-M9h" secondAttribute="bottom" id="wXl-Ou-v4y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0W2-oW-MaK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Filmes" id="btc-Q4-Ibd"/>

@@ -37,6 +37,8 @@ class DetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.tintColor = UIColor.Branco()
         self.tabBarController?.tabBar.isHidden = true
+        
+        self.navigationController?.removeStatusBar()
 
         viewFavorito.layer.cornerRadius = 10
         viewFavorito.layer.maskedCorners = [.layerMaxXMinYCorner]
@@ -50,8 +52,11 @@ class DetailViewController: UIViewController {
             
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.AmareloClaro()
         self.navigationController?.navigationBar.isTranslucent = false
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setStatusBar(backgroundColor: UIColor.AmareloClaro())
+
         tabBarController?.tabBar.isHidden = false
     }
     

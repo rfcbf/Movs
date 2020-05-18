@@ -66,3 +66,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+extension UINavigationController {
+
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        statusBarView.tag = 150
+        statusBarView.isUserInteractionEnabled = true
+        view.addSubview(statusBarView)
+    }
+    
+    func removeStatusBar() {
+       if let viewWithTag = self.view.viewWithTag(150) {
+           viewWithTag.removeFromSuperview()
+       }
+    }
+
+}

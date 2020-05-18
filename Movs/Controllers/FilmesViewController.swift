@@ -11,16 +11,20 @@ import Alamofire
 //import TMDBSwift
 import SDWebImage
 
-class FilmesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FilmesViewController: UIViewController {
     
     var pag = 1
     var carregando = false
     
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     var result : Array<Filmes> = []
+    var filtro: Array<Filmes> = []
     
     @IBOutlet weak var collection: UICollectionView!
+    let searchController = UISearchController(searchResultsController: nil)
     
+    var filtrandoDados : Bool = false
+            
     override func viewDidLoad() {
         
         let barButton = UIBarButtonItem(customView: activityIndicator)
@@ -33,26 +37,43 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.collection.collectionViewLayout = self.collectionViewFlowLayout
         
         self.result = []
+        self.filtro = []
+        
         carregandoDados(pag: self.pag)
+
+        self.navigationController?.setStatusBar(backgroundColor: UIColor.AmareloClaro())
+        self.navigationController?.navigationBar.backgroundColor = UIColor.AmareloClaro()
+        self.navigationController?.navigationBar.tintColor = UIColor.AzulEscuro()
+
+        //pesquisa
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = ""
+        searchController.searchBar.backgroundColor = UIColor.AmareloClaro()
+        navigationItem.searchController = searchController
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("reload")
         self.collection.reloadData()
     }
     
     func carregandoDados(pag: Int){
-        do{
-            self.result.append(contentsOf: try FilmeServices.getFilmes(pag: pag))
-        }catch{
-            print("erro")
+        if !filtrandoDados {
+            do{
+                self.result.append(contentsOf: try FilmeServices.getFilmes(pag: pag))
+                filtro = result
+            }catch{
+                print("erro")
+            }
         }
     }
     
     lazy var collectionViewFlowLayout : CustomCollectionViewFlowLayout = {
-           let layout = CustomCollectionViewFlowLayout(display: .grid(columns: 2), containerWidth: self.view.bounds.width)
-           return layout
-       }()
+        let layout = CustomCollectionViewFlowLayout(display: .grid(columns: 2), containerWidth: self.view.bounds.width)
+        return layout
+    }()
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -60,21 +81,77 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     private func reloadCollectionViewLayout(_ width: CGFloat) {
-     
+        
         self.collectionViewFlowLayout.containerWidth = width
         self.collectionViewFlowLayout.display = CollectionDisplay.grid(columns: 2)
-     
+        
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if contentHeight > 0 {
+            if offsetY > contentHeight - scrollView.frame.height {
+                if !carregando {
+                    beginBatchFetch()
+                }
+                
+            }
+        }
+    }
+    
+    func beginBatchFetch() {
+        self.pag += 1
+        self.carregando = true
+        activityIndicator.startAnimating()
+        
+        Utils().delayWithSeconds(1) {
+            self.carregandoDados(pag: self.pag)
+            
+            self.collection.reloadData()
+            self.carregando = false
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func filtrando(termo: String){
+        
+        if termo.count > 0 {
+            filtro = []
+            filtrandoDados = true
+            for item in self.result {
+                if (item.title.lowercased().contains(searchController.searchBar.text!.lowercased())) {
+                    self.filtro.append(item)
+                }
+            }
+            collection.reloadData()
+        }
+    }
+    
+    func restorarDados(){
+        filtrandoDados = false
+        filtro = result
+        collection.reloadData()
+    }
+    
+}
+
+
+extension FilmesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //MARK: Collection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return result.count
+        return filtro.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellFilmes", for: indexPath) as! FilmesCollectionViewCell
         
-        let urlImagem = URL(string: "\(Constantes.URL_IMAGEM)\(result[indexPath.item].poster)")
+        let resultado: Filmes
+        resultado = filtro[indexPath.row]
+        
+        let urlImagem = URL(string: "\(Constantes.URL_IMAGEM)\(resultado.poster)")
         
         //borda na celula
         cell.contentView.layer.borderColor = UIColor.AzulEscuro().cgColor
@@ -98,59 +175,61 @@ class FilmesViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.viewFavorito.layer.cornerRadius = 10
         cell.viewFavorito.layer.maskedCorners = [.layerMinXMaxYCorner]
         cell.viewFavorito.layer.masksToBounds = true
-                
-        let favoritado = Favoritos.verificaSeFilmeFavoritado(id: String(result[indexPath.row].id))
+        
+        let favoritado = Favoritos.verificaSeFilmeFavoritado(id: String(resultado.id))
         
         favoritado == true ? cell.btnFavorito.setImage(UIImage(named: "favorite_full"), for: .normal) : cell.btnFavorito.setImage(UIImage(named: "favorite_gray"), for: .normal)
         
-        cell.filme = result[indexPath.item]
-
-        cell.lblNome.text = result[indexPath.item].title
-        cell.imagem.sd_setImage(with: urlImagem, placeholderImage: UIImage(named: "placeholder.png"), options: [.refreshCached, .progressiveLoad]) 
+        result[indexPath.row].favorito = favoritado
+        resultado.favorito = favoritado
+        
+        cell.filme = resultado
+        
+        cell.lblNome.text = resultado.title
+        cell.imagem.sd_setImage(with: urlImagem, placeholderImage: UIImage(named: "placeholder.png"), options: [.refreshCached, .progressiveLoad])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let filmeSelecionado : Filmes = self.result[indexPath.item]
+        self.navigationController?.removeStatusBar()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.tintColor = UIColor.AzulEscuro()
+        
+        let filmeSelecionado: Filmes
+        filmeSelecionado = filtro[indexPath.row]
+                
         let vc = UIStoryboard.init(name: "Detail", bundle: Bundle.main).instantiateViewController(withIdentifier: "detalhes") as? DetailViewController
         vc?.filmes = filmeSelecionado
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
-            if !carregando {
-                beginBatchFetch()
-            }
-            
-        }
-    }
-    
-    func beginBatchFetch() {
-        self.pag += 1
-        self.carregando = true
-        activityIndicator.startAnimating()
-        
-        Utils().delayWithSeconds(1) {
-            self.carregandoDados(pag: self.pag)
-            
-            self.collection.reloadData()
-            self.carregando = false
-            self.activityIndicator.stopAnimating()
-        }
-        
-        
-    }
 }
 
+extension FilmesViewController: UISearchResultsUpdating{
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text{
+            filtrando(termo: searchText)
+        }
+    }
+        
+}
 
-
+extension FilmesViewController: UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchController.isActive = false
+        if let searchText = searchBar.text {
+            filtrando(termo: searchText)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        restorarDados()
+    }
+    
+}
 
 

@@ -111,7 +111,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsQ-gA-6Ye"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favoritos" id="Afu-zY-wW4"/>
+                    <navigationItem key="navigationItem" title="Favoritos" id="Afu-zY-wW4">
+                        <barButtonItem key="rightBarButtonItem" image="Filter" id="iIG-er-aqX">
+                            <connections>
+                                <segue destination="X3T-Ul-3UY" kind="show" identifier="filtroSegue" id="mzA-mY-xUj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="JZ8-VE-bL7" id="fNo-Fe-rQ9"/>
                     </connections>
@@ -142,8 +148,134 @@
             </objects>
             <point key="canvasLocation" x="-30" y="309"/>
         </scene>
+        <!--Filtro-->
+        <scene sceneID="AfI-Ey-TUT">
+            <objects>
+                <viewController storyboardIdentifier="Filtro" title="Filtro" id="X3T-Ul-3UY" customClass="FiltroPrincipalViewController" customModule="Movs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AoV-ll-sOe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmY-qa-IGy">
+                                <rect key="frame" x="20" y="799" width="374" height="63"/>
+                                <color key="backgroundColor" red="0.96518832450000003" green="0.8036186099" blue="0.50183469059999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="oeR-vI-doP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <state key="normal" title="Aplicar">
+                                    <color key="titleColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAplicar:" destination="X3T-Ul-3UY" eventType="touchUpInside" id="wuk-E5-9d2"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-3S-IGa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="59" id="VRq-pa-0v8" customClass="FiltroTableViewCell" customModule="Movs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRq-pa-0v8" id="F41-Cx-v1M">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbi-ge-LAM">
+                                                    <rect key="frame" x="20" y="19" width="104" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="104" id="Y55-pt-zfi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X22-YH-kFW">
+                                                    <rect key="frame" x="283" y="19" width="99" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="99" id="2wm-0V-PPr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" red="0.87708777189999998" green="0.72775429489999999" blue="0.31939977409999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="X22-YH-kFW" secondAttribute="trailing" constant="12" id="2jh-UR-qkv"/>
+                                                <constraint firstItem="Xbi-ge-LAM" firstAttribute="leading" secondItem="F41-Cx-v1M" secondAttribute="leadingMargin" id="Z1d-mj-UVo"/>
+                                                <constraint firstItem="Xbi-ge-LAM" firstAttribute="centerY" secondItem="F41-Cx-v1M" secondAttribute="centerY" id="xY7-iN-IQX"/>
+                                                <constraint firstItem="Xbi-ge-LAM" firstAttribute="baseline" secondItem="X22-YH-kFW" secondAttribute="baseline" id="z5b-yF-kFE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblFiltro" destination="Xbi-ge-LAM" id="wTw-aa-c70"/>
+                                            <outlet property="lblResultadoFiltro" destination="X22-YH-kFW" id="rxV-7q-jec"/>
+                                            <segue destination="yeZ-wu-JNc" kind="show" identifier="filtroBuscaSegue" id="OuJ-7U-qcs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="X3T-Ul-3UY" id="z2F-Ix-8LQ"/>
+                                    <outlet property="delegate" destination="X3T-Ul-3UY" id="C1g-nI-mQH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kFd-3S-IGa" firstAttribute="leading" secondItem="RQ5-rs-oxu" secondAttribute="leading" id="5vY-ep-GZT"/>
+                            <constraint firstItem="kFd-3S-IGa" firstAttribute="centerX" secondItem="BmY-qa-IGy" secondAttribute="centerX" id="8gZ-7X-mFr"/>
+                            <constraint firstItem="BmY-qa-IGy" firstAttribute="top" secondItem="kFd-3S-IGa" secondAttribute="bottom" constant="8" id="DaU-JR-TXG"/>
+                            <constraint firstItem="BmY-qa-IGy" firstAttribute="trailing" secondItem="AoV-ll-sOe" secondAttribute="trailingMargin" id="HuI-cF-xyW"/>
+                            <constraint firstItem="kFd-3S-IGa" firstAttribute="top" secondItem="RQ5-rs-oxu" secondAttribute="top" id="pZB-iU-oGN"/>
+                            <constraint firstItem="BmY-qa-IGy" firstAttribute="bottom" secondItem="RQ5-rs-oxu" secondAttribute="bottom" id="tLD-Ym-2FY"/>
+                            <constraint firstItem="BmY-qa-IGy" firstAttribute="leading" secondItem="AoV-ll-sOe" secondAttribute="leadingMargin" id="zOo-fa-4jQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RQ5-rs-oxu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filtro" id="Kbb-Xf-9v8"/>
+                    <connections>
+                        <outlet property="btnAplicar" destination="BmY-qa-IGy" id="hrG-4v-BcX"/>
+                        <outlet property="tableView" destination="kFd-3S-IGa" id="tWv-vh-q38"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZG-Hw-7gn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734.7826086956522" y="308.70535714285711"/>
+        </scene>
+        <!--Filtro Busca Table View Controller-->
+        <scene sceneID="K3f-xj-uNv">
+            <objects>
+                <tableViewController storyboardIdentifier="FiltroBusca" id="yeZ-wu-JNc" customClass="FiltroBuscaTableViewController" customModule="Movs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="181-9w-RcW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="pkk-Te-R1E">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pkk-Te-R1E" id="0Wo-Tb-AUs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yeZ-wu-JNc" id="8Ys-Ua-8tT"/>
+                            <outlet property="delegate" destination="yeZ-wu-JNc" id="JG4-LS-bJK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lec-qz-BI0">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="KaF-CQ-YNf"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9T-zI-gLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2497" y="309"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Filter" width="17" height="19"/>
         <image name="exemploPoster.jpg" width="500" height="750"/>
         <image name="favorite_empty" width="22" height="21"/>
     </resources>

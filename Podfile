@@ -7,21 +7,13 @@ target 'Movs' do
 
   # Pods for Movs
   pod 'Alamofire', '~> 5.1'
-#  pod "TMDBSwift"
   pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'DeviceKit'
 #  pod 'UIImageColors'
   pod 'TagListView'
   
-#  target 'MovsTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
-#
-#  target 'MovsUITests' do
-#    # Pods for testing
-#  end
+
 end
 
 post_install do |installer|

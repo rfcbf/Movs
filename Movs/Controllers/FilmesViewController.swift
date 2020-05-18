@@ -22,10 +22,13 @@ class FilmesViewController: UIViewController {
     
     @IBOutlet weak var collection: UICollectionView!
     let searchController = UISearchController(searchResultsController: nil)
-    
+
     var filtrandoDados : Bool = false
             
     override func viewDidLoad() {
+        
+        collection.dataSource = self
+        collection.delegate = self
         
         let barButton = UIBarButtonItem(customView: activityIndicator)
         self.navigationItem.setLeftBarButton(barButton, animated: true)
@@ -126,6 +129,10 @@ class FilmesViewController: UIViewController {
                 }
             }
             collection.reloadData()
+        }else{
+            filtro = result
+            collection.reloadData()
+
         }
     }
     
@@ -134,6 +141,8 @@ class FilmesViewController: UIViewController {
         filtro = result
         collection.reloadData()
     }
+    
+    
     
 }
 
@@ -145,7 +154,27 @@ extension FilmesViewController: UICollectionViewDataSource, UICollectionViewDele
         return filtro.count
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if filtro.count == 0 {
+            if filtrandoDados {
+                
+                let vcSemRegistro = SemRegistro.instanceFromNib()
+                vcSemRegistro.texto.sizeToFit()
+                vcSemRegistro.texto.text = "Sua busca por '\(String(describing: searchController.searchBar.text!))' não resultou em nunhum resultado."
+                collectionView.backgroundView = vcSemRegistro
+                
+            }else{
+                let vcError = Error.instanceFromNib()
+                collectionView.backgroundView = vcError
+            }
+        }
+        
+        return 1
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellFilmes", for: indexPath) as! FilmesCollectionViewCell
         
         let resultado: Filmes
@@ -188,6 +217,7 @@ extension FilmesViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.lblNome.text = resultado.title
         cell.imagem.sd_setImage(with: urlImagem, placeholderImage: UIImage(named: "placeholder.png"), options: [.refreshCached, .progressiveLoad])
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -227,9 +257,8 @@ extension FilmesViewController: UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchController.isActive = false
+        collection.backgroundView = UIView.init()
         restorarDados()
     }
     
 }
-
-

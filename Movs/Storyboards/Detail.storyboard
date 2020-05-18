@@ -19,11 +19,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exemploFundo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xad-Jb-c2w">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xad-Jb-c2w">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exemploPoster.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-E8-f9P">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-E8-f9P">
                                         <rect key="frame" x="252" y="36" width="106" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                     </imageView>
@@ -46,7 +46,7 @@
                                         <color key="backgroundColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ML-LC-y37">
                                 <rect key="frame" x="0.0" y="203" width="375" height="464"/>
@@ -269,8 +269,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exemploFundo.jpg" width="500" height="281"/>
-        <image name="exemploPoster.jpg" width="500" height="750"/>
         <image name="favorite_gray" width="17" height="16"/>
     </resources>
 </document>

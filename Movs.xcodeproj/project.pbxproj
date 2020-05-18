@@ -18,6 +18,14 @@
 		8825E848246C9D9300002FC3 /* MovsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825E847246C9D9300002FC3 /* MovsUITests.swift */; };
 		8825E856246CB0C400002FC3 /* Filmes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E855246CB0C400002FC3 /* Filmes.storyboard */; };
 		8825E858246CB17700002FC3 /* Favoritos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8825E857246CB17700002FC3 /* Favoritos.storyboard */; };
+		885989C9247316B100E7B1CD /* SemRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885989C8247316B100E7B1CD /* SemRegistro.swift */; };
+		8861EC59247326B50053F046 /* SemRegistro.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8861EC58247326B50053F046 /* SemRegistro.xib */; };
+		8861EC5D24732CA30053F046 /* Error.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8861EC5B24732CA20053F046 /* Error.xib */; };
+		8861EC5E24732CA30053F046 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC5C24732CA20053F046 /* Error.swift */; };
+		8861EC60247333980053F046 /* FiltroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC5F247333980053F046 /* FiltroTableViewCell.swift */; };
+		8861EC622473345A0053F046 /* FiltroPrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC612473345A0053F046 /* FiltroPrincipalViewController.swift */; };
+		8861EC64247337C90053F046 /* FiltroBuscaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC63247337C90053F046 /* FiltroBuscaTableViewController.swift */; };
+		8861EC66247349500053F046 /* Generos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC65247349500053F046 /* Generos.swift */; };
 		88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */; };
 		888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E502471E12C0067491F /* Movs.xcdatamodeld */; };
 		888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5A2471E2420067491F /* Model.xcmappingmodel */; };
@@ -72,6 +80,14 @@
 		8825E849246C9D9300002FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8825E855246CB0C400002FC3 /* Filmes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filmes.storyboard; sourceTree = "<group>"; };
 		8825E857246CB17700002FC3 /* Favoritos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favoritos.storyboard; sourceTree = "<group>"; };
+		885989C8247316B100E7B1CD /* SemRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemRegistro.swift; sourceTree = "<group>"; };
+		8861EC58247326B50053F046 /* SemRegistro.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemRegistro.xib; sourceTree = "<group>"; };
+		8861EC5B24732CA20053F046 /* Error.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Error.xib; sourceTree = "<group>"; };
+		8861EC5C24732CA20053F046 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8861EC5F247333980053F046 /* FiltroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroTableViewCell.swift; sourceTree = "<group>"; };
+		8861EC612473345A0053F046 /* FiltroPrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroPrincipalViewController.swift; sourceTree = "<group>"; };
+		8861EC63247337C90053F046 /* FiltroBuscaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroBuscaTableViewController.swift; sourceTree = "<group>"; };
+		8861EC65247349500053F046 /* Generos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generos.swift; sourceTree = "<group>"; };
 		88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmesCollectionViewCell.swift; sourceTree = "<group>"; };
 		888C2E512471E12C0067491F /* Movs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movs.xcdatamodel; sourceTree = "<group>"; };
 		888C2E532471E1870067491F /* Favoritos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favoritos+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -194,6 +210,17 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		8861EC5A24732B2D0053F046 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				8861EC5C24732CA20053F046 /* Error.swift */,
+				8861EC5B24732CA20053F046 /* Error.xib */,
+				885989C8247316B100E7B1CD /* SemRegistro.swift */,
+				8861EC58247326B50053F046 /* SemRegistro.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		88768C06B46BA9C29191A39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +248,7 @@
 				88FD4FDD24718EBD00C10BC9 /* GenerosTableViewCell.swift */,
 				88FD4FDF2471966C00C10BC9 /* OutrosTableViewCell.swift */,
 				888C2E5E2471EE8D0067491F /* FavoritosTableViewCell.swift */,
+				8861EC5F247333980053F046 /* FiltroTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -238,10 +266,13 @@
 		88DCD0CC246DEBF400AC67AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8861EC5A24732B2D0053F046 /* Xib */,
 				88CE347B246F098F00A62E2C /* Cells */,
 				8825E824246C9D9200002FC3 /* FilmesViewController.swift */,
 				88CE347E246F18B600A62E2C /* DetailViewController.swift */,
 				888C2E5C2471EE020067491F /* FavoritosViewController.swift */,
+				8861EC612473345A0053F046 /* FiltroPrincipalViewController.swift */,
+				8861EC63247337C90053F046 /* FiltroBuscaTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +283,7 @@
 				888C2E532471E1870067491F /* Favoritos+CoreDataClass.swift */,
 				888C2E542471E1870067491F /* Favoritos+CoreDataProperties.swift */,
 				88DCD0CF246DF19D00AC67AE /* Filmes.swift */,
+				8861EC65247349500053F046 /* Generos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,10 +415,12 @@
 				8825E856246CB0C400002FC3 /* Filmes.storyboard in Resources */,
 				8825E832246C9D9300002FC3 /* LaunchScreen.storyboard in Resources */,
 				8825E82F246C9D9300002FC3 /* Assets.xcassets in Resources */,
+				8861EC5D24732CA30053F046 /* Error.xib in Resources */,
 				8825E858246CB17700002FC3 /* Favoritos.storyboard in Resources */,
 				88CE347D246F13EB00A62E2C /* Detail.storyboard in Resources */,
 				88CE3477246EEA7900A62E2C /* exemploPoster.jpg in Resources */,
 				8825E82A246C9D9200002FC3 /* Main.storyboard in Resources */,
+				8861EC59247326B50053F046 /* SemRegistro.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,17 +491,23 @@
 				888C2E5D2471EE020067491F /* FavoritosViewController.swift in Sources */,
 				88FD4FDE24718EBD00C10BC9 /* GenerosTableViewCell.swift in Sources */,
 				88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */,
+				8861EC64247337C90053F046 /* FiltroBuscaTableViewController.swift in Sources */,
 				88FD4FE02471966C00C10BC9 /* OutrosTableViewCell.swift in Sources */,
 				888C2E5F2471EE8D0067491F /* FavoritosTableViewCell.swift in Sources */,
 				88DCD0CB246DEBDE00AC67AE /* Utils.swift in Sources */,
 				8825E825246C9D9200002FC3 /* FilmesViewController.swift in Sources */,
+				8861EC5E24732CA30053F046 /* Error.swift in Sources */,
 				8825E821246C9D9200002FC3 /* AppDelegate.swift in Sources */,
+				8861EC66247349500053F046 /* Generos.swift in Sources */,
 				88DCD0D2246DF60100AC67AE /* FilmeServices.swift in Sources */,
 				888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */,
+				8861EC60247333980053F046 /* FiltroTableViewCell.swift in Sources */,
 				88CE3479246F003C00A62E2C /* CustomCollectionViewFlowLayout.swift in Sources */,
 				88DCD0C9246DEB8200AC67AE /* Constantes.swift in Sources */,
 				88FD4FDC247187EA00C10BC9 /* TotalizadoresTableViewCell.swift in Sources */,
 				8825E823246C9D9200002FC3 /* SceneDelegate.swift in Sources */,
+				8861EC622473345A0053F046 /* FiltroPrincipalViewController.swift in Sources */,
+				885989C9247316B100E7B1CD /* SemRegistro.swift in Sources */,
 				88DCD0C6246DE40D00AC67AE /* Cores.swift in Sources */,
 				888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */,
 				88DCD0D0246DF19D00AC67AE /* Filmes.swift in Sources */,

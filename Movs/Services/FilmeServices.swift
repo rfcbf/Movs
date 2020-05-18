@@ -129,4 +129,42 @@ class FilmeServices: NSObject {
         return filme
     }
     
+    
+    static func getGeneros() throws -> [Generos] {
+        var generos = [Generos]()
+        let semaphone = DispatchSemaphore(value: 0)
+        
+        let url = URL(string:"https://api.themoviedb.org/3/genre/movie/list?api_key=\(Constantes.API_KEY)&language=pt-BR")
+        var request = URLRequest(url: url!)
+        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")  // the request is JSON
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }else{
+                do {
+                    let json = try JSON(data: data!)
+                                        
+                    for (_,subJson):(String, JSON) in json["genres"] {
+                        let genero = Generos.init(id: subJson["id"].intValue, title:subJson["name"].stringValue)
+                        generos.append(genero)
+                    }
+                }catch{
+                    print("erro json")
+                    return
+                }
+                
+                semaphone.signal()
+            }
+            
+        }.resume()
+        
+        _ = semaphone.wait(timeout: .distantFuture)
+        
+        return generos
+    }
+    
 }

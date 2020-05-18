@@ -72,6 +72,9 @@ class FavoritosViewController: UIViewController {
                 }
             }
             tableView.reloadData()
+        }else{
+            filtro = favoritos
+            tableView.reloadData()
         }
     }
     
@@ -80,6 +83,7 @@ class FavoritosViewController: UIViewController {
         filtro = favoritos
         tableView.reloadData()
     }
+        
 }
 
 extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
@@ -89,23 +93,26 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        tableView.backgroundView  = UIView.init()
+        tableView.separatorStyle = .singleLine
+
+        if filtro.count == 0 {
+            if filtrandoDados {
+                
+                let vcSemRegistro = SemRegistro.instanceFromNib()
+                vcSemRegistro.texto.sizeToFit()
+                vcSemRegistro.texto.text = "Sua busca por '\(String(describing: searchController.searchBar.text!))' não resultou em nunhum resultado."
+                tableView.separatorStyle = .none
+                tableView.backgroundView = vcSemRegistro
+
+            }else{
+                let vcError = Error.instanceFromNib()
+                tableView.separatorStyle = .none
+                tableView.backgroundView = vcError
+            }
+        }
         
-        var numOfSections: Int = 1
-        if favoritos.count > 0
-        {
-            tableView.separatorStyle = .singleLine
-            numOfSections            = 1
-            tableView.backgroundView = nil
-        }
-        else
-        {
-            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text          = "Sem favoritos"
-            noDataLabel.textAlignment = .center
-            tableView.backgroundView  = noDataLabel
-            tableView.separatorStyle  = .none
-        }
-        return numOfSections
+        return 1
         
     }
     
@@ -157,10 +164,9 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
             Favoritos.apagarFavoritos(filme: filmeSelecionado)
             //remove o registro do array
             self.favoritos.remove(at: indexPath.row)
-            //remove da tabela
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.filtro.remove(at: indexPath.row)
+
             self.tableView.reloadData()
-            
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         swipeActions.performsFirstActionWithFullSwipe = true
@@ -182,7 +188,6 @@ extension FavoritosViewController: UISearchResultsUpdating{
 extension FavoritosViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchController.isActive = false
         if let searchText = searchBar.text {
             filtrando(termo: searchText)
         }
@@ -190,6 +195,7 @@ extension FavoritosViewController: UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchController.isActive = false
+        tableView.backgroundView = UIView.init()
         restorarDados()
     }
     

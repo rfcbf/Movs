@@ -13,7 +13,7 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+        
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = UIColor.AmareloClaro()
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.AzulEscuro()]
-
+                
         return true
     }
     
@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
     
-    func applicationWillTerminate(_ application: UIApplication) {
+    @objc func applicationWillTerminate(_ application: UIApplication) {
         saveContext()
     }
-
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentCloudKitContainer = {

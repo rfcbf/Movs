@@ -25,6 +25,9 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     var filtrandoDados : Bool = false
     var filtroPesquisa: Bool = false
+    
+    var anoFiltro: String = ""
+    var generoFiltro: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +69,13 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
     }
     
     @objc func refresh(sender: AnyObject) {
-        recuperarDados()
+        if filtroPesquisa {
+            dadosRecebidoFiltro(ano: anoFiltro, genero: generoFiltro)
+        }else {
+            anoFiltro = ""
+            generoFiltro = ""
+            recuperarDados()
+        }
         refreshControl.endRefreshing()
     }
     
@@ -91,12 +100,15 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
         filtro = favoritos
         tableView.reloadData()
     }
-    
+
     //MARK: Filtro(delegate)
     func dadosRecebidoFiltro(ano: String, genero: String) {
         favoritos = []
         filtro = []
         
+        anoFiltro = ano
+        generoFiltro = genero
+
         if ano != "", genero == ""{ //filtro somente por ano
             let filtroAno: [Filmes] = Favoritos.getFilmesFiltro(ano: ano)
             favoritos = filtroAno
@@ -113,6 +125,7 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
             let array: Array<String> = Genero.getGenerosFiltro(idGeneros: genero)
             let filtroGenero: [Filmes] = Favoritos.getFilmesFiltroPorGenero(idFilmes: array)
 
+            //verifica se ano e generdo são iguas para atribuir ao array
             for genero in filtroGenero {
                 var encontrou = false
                 
@@ -141,6 +154,8 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
     }
     
     func removerFiltro() {
+        anoFiltro = ""
+        generoFiltro = ""
         recuperarDados()
         filtroPesquisa = false
         tableView.reloadData()
@@ -159,6 +174,7 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
         
 }
 
+//MARK: Table
 extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,9 +183,7 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let hearder = Bundle.main.loadNibNamed("HeaderFavTableViewCell", owner: self, options: nil)?.first as! HeaderFavTableViewCell as HeaderFavTableViewCell
-        
         hearder.delegate = self
-
         return hearder
     }
     
@@ -180,11 +194,7 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
             return 0
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }
-    
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         tableView.backgroundView  = UIView.init()
         tableView.separatorStyle = .singleLine
@@ -208,7 +218,7 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
                 let vcError = Error.instanceFromNib()
                 tableView.separatorStyle = .none
                 tableView.backgroundView = vcError
-                return 0
+                return 1
             }
         }
         
@@ -276,6 +286,7 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//MARK: SearchResultUpdade
 extension FavoritosViewController: UISearchResultsUpdating{
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -286,6 +297,7 @@ extension FavoritosViewController: UISearchResultsUpdating{
         
 }
 
+//MARK: SearchResultDelegate
 extension FavoritosViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

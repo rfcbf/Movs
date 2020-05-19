@@ -12,7 +12,6 @@ target 'Movs' do
   pod 'DeviceKit'
 #  pod 'UIImageColors'
   pod 'TagListView'
-  
 
 end
 

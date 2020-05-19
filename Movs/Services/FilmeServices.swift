@@ -149,7 +149,7 @@ class FilmeServices: NSObject {
                     let json = try JSON(data: data!)
                                         
                     for (_,subJson):(String, JSON) in json["genres"] {
-                        let genero = Generos.init(id: subJson["id"].intValue, title:subJson["name"].stringValue)
+                        let genero = Generos.init(id: subJson["id"].intValue, idFilme: "", title:subJson["name"].stringValue)
                         generos.append(genero)
                     }
                 }catch{

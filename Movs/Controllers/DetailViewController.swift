@@ -55,6 +55,7 @@ class DetailViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.AmareloClaro()
         self.navigationController?.navigationBar.isTranslucent = false
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.tintColor = UIColor.AzulEscuro()
         self.navigationController?.setStatusBar(backgroundColor: UIColor.AmareloClaro())
 
         tabBarController?.tabBar.isHidden = false

@@ -30,6 +30,8 @@ class FiltroPrincipalViewController: UIViewController, filtroDelegate {
     var ano: String = "";
     var genero = Generos()
     
+    var delegate: pesquisaDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,11 +41,7 @@ class FiltroPrincipalViewController: UIViewController, filtroDelegate {
         generos = []
         
         recuperarDados()
-        
-        for temp in listaAnos {
-            print(temp)
-        }
-        
+                
         btnAplicar.layer.cornerRadius = 12
         btnAplicar.clipsToBounds = true
     }
@@ -92,18 +90,28 @@ class FiltroPrincipalViewController: UIViewController, filtroDelegate {
     
     //MARK: Protocol
     func anoRecebido(ano: String) {
-        print("ano recebido -> ", ano)
         self.ano = ano
         tableView.reloadData()
     }
 
     func generoRecebido(genero: Generos) {
-        print("genero recebido -> ", genero.title)
         self.genero = genero
         tableView.reloadData()
     }
     
     @IBAction func btnAplicar(_ sender: Any) {
+        
+        if ano == "" , genero.title == "" {
+            let alerta = UIAlertController(title: "Movs", message: "Favor selecionar um ano ou um gênero", preferredStyle: .alert)
+            let botaoAlerta = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alerta.addAction(botaoAlerta)
+            present(alerta, animated: true, completion: nil)
+        }else{
+            delegate?.dadosRecebidoFiltro(ano: ano, genero: String(genero.id))
+            _ = navigationController?.popViewController(animated: true)
+        }
+        
+
     }
     
     // MARK: - Navigation

@@ -13,7 +13,12 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="totalVotos" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Genero" representedClassName="Genero" syncable="YES" codeGenerationType="class">
+        <attribute name="idFilme" optional="YES" attributeType="String"/>
+        <attribute name="idGenero" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Favoritos" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="Genero" positionX="-63" positionY="63" width="128" height="73"/>
     </elements>
 </model>

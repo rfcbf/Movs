@@ -8,18 +8,24 @@
 
 import UIKit
 
-class FavoritosViewController: UIViewController {
+protocol pesquisaDelegate {
+    func dadosRecebidoFiltro(ano: String, genero: String)
+    func removerFiltro()
+}
+
+class FavoritosViewController: UIViewController, pesquisaDelegate {
     
     var favoritos : Array<Filmes> = []
     var filtro: Array<Filmes> = []
     
+    @IBOutlet weak var btnFiltro: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     
     let searchController = UISearchController(searchResultsController: nil)
     var filtrandoDados : Bool = false
+    var filtroPesquisa: Bool = false
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,14 +47,18 @@ class FavoritosViewController: UIViewController {
         searchController.searchBar.placeholder = ""
         searchController.searchBar.backgroundColor = UIColor.AmareloClaro()
         navigationItem.searchController = searchController
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        recuperarDados()
+        if !filtroPesquisa {
+            recuperarDados()
+        }
     }
     
     func recuperarDados(){
+        
+        let generos : [Generos] = Genero.getTodosGenerosFavoritados()
+        
         if !filtrandoDados {
             favoritos = Favoritos.getTodosFavoritos()
             favoritos.sort {$0.title < $1.title}
@@ -83,6 +93,71 @@ class FavoritosViewController: UIViewController {
         filtro = favoritos
         tableView.reloadData()
     }
+    
+    //MARK: Filtro(delegate)
+    func dadosRecebidoFiltro(ano: String, genero: String) {
+        favoritos = []
+        filtro = []
+        
+        if ano != "", genero == ""{ //filtro somente por ano
+            let filtroAno: [Filmes] = Favoritos.getFilmesFiltro(ano: ano)
+            favoritos = filtroAno
+        }else if genero != "", ano == "" { //filtro somente por genero
+            let array: Array<String> = Genero.getGenerosFiltro(idGeneros: genero)
+            
+            let filtroGenero: [Filmes] = Favoritos.getFilmesFiltroPorGenero(idFilmes: array)
+            favoritos = filtroGenero
+            
+        }else if ano != "", genero != "" { //Pesquisa por ano e genero
+            
+            let filtroAno: [Filmes] = Favoritos.getFilmesFiltro(ano: ano)
+
+            let array: Array<String> = Genero.getGenerosFiltro(idGeneros: genero)
+            let filtroGenero: [Filmes] = Favoritos.getFilmesFiltroPorGenero(idFilmes: array)
+
+            for genero in filtroGenero {
+                var encontrou = false
+                
+                for ano in filtroAno {
+                    
+                    if ano.id == genero.id {
+                        encontrou = true
+                    }
+                    
+                }
+                
+                if encontrou {
+                    favoritos.append(genero)
+                }
+                
+            }
+            
+        }else{ //filtro retorno nada
+            favoritos = Favoritos.getTodosFavoritos()
+        }
+        
+        favoritos.sort {$0.title < $1.title}
+        filtro = favoritos
+        filtroPesquisa = true
+        tableView.reloadData()
+    }
+    
+    func removerFiltro() {
+        recuperarDados()
+        filtroPesquisa = false
+        tableView.reloadData()
+    }
+
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "filtroSegue") {
+            let vc: FiltroPrincipalViewController = segue.destination as! FiltroPrincipalViewController
+            vc.delegate = self
+        }
+        
+    }
         
 }
 
@@ -90,6 +165,26 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filtro.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let hearder = Bundle.main.loadNibNamed("HeaderFavTableViewCell", owner: self, options: nil)?.first as! HeaderFavTableViewCell as HeaderFavTableViewCell
+        
+        hearder.delegate = self
+
+        return hearder
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if filtroPesquisa {
+            return 70
+        }else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,14 +199,22 @@ extension FavoritosViewController: UITableViewDelegate, UITableViewDataSource {
                 vcSemRegistro.texto.text = "Sua busca por '\(String(describing: searchController.searchBar.text!))' não resultou em nunhum resultado."
                 tableView.separatorStyle = .none
                 tableView.backgroundView = vcSemRegistro
+                return 0
 
             }else{
+                if filtroPesquisa {
+                    self.btnFiltro.isEnabled = true
+                } else {
+                    self.btnFiltro.isEnabled = false
+                }
                 let vcError = Error.instanceFromNib()
                 tableView.separatorStyle = .none
                 tableView.backgroundView = vcError
+                return 0
             }
         }
         
+        self.btnFiltro.isEnabled = true
         return 1
         
     }

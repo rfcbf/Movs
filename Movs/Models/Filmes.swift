@@ -114,6 +114,12 @@ extension Favoritos {
         managedObj.poster = filme.poster
         
         salvar()
+        
+        for genero in filme.generosID{
+            let gravarGenero = Generos.init(id: genero, idFilme: String(filme.id), title: "")
+            Genero.inserirGenero(generos: gravarGenero)
+        }
+        
     }
     
     static func apagarFavoritos(filme: Filmes){
@@ -126,7 +132,9 @@ extension Favoritos {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
         
         do {
+            Genero.apagarGeneros(filmeID: String(filme.id))
             try self.context().execute(deleteRequest)
+            
         } catch {
             print(error.localizedDescription)
         }
@@ -188,4 +196,70 @@ extension Favoritos {
         return array
     }
     
+    static func getFilmesFiltro(ano: String) -> [Filmes]{
+        var array = [Filmes]()
+        let predicate = NSPredicate(format: "ano == %@", ano)
+        
+        let fetchRequest: NSFetchRequest<Favoritos> = Favoritos.fetchRequest()
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchResult = try context().fetch(fetchRequest)
+
+            for item in fetchResult{
+                           
+               let result = Filmes(id: Int((item.id! as NSString).intValue) ,
+                                   title: item.title!,
+                                   descricao: item.descricao!,
+                                   ano: item.ano!,
+                                   adulto: item.adulto,
+                                   imagemFundo: item.imagemFundo!,
+                                   generosID: [],
+                                   generosNomes: [],
+                                   producao: [],
+                                   linguagemOriginal: item.linguagemOriginal!,
+                                   popularidade: item.popularidade,
+                                   poster: item.poster!,
+                                   mediaVoto: item.mediaVoto,
+                                   totalVotos: item.totalVotos,
+                                   favorito: true)
+                           
+                           array.append(result)
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return array
+        
+    }
+    
+    static func getFilmesFiltroPorGenero(idFilmes: Array<String>) -> [Filmes]{
+        let filmes : [Filmes] = self.getTodosFavoritos()
+        var array = [Filmes]()
+        
+        for id in idFilmes {
+            
+            let filme = filmes.filter({
+                $0.id == Int(id)
+            })
+            
+            array.append(contentsOf: filme)
+            
+        }
+        
+        return array
+        
+    }
+    
+}
+
+extension Array where Element: Equatable {
+    func contains(array: [Element]) -> Bool {
+        for item in array {
+            if !self.contains(item) { return false }
+        }
+        return true
+    }
 }

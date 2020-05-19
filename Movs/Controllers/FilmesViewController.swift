@@ -162,10 +162,12 @@ extension FilmesViewController: UICollectionViewDataSource, UICollectionViewDele
                 vcSemRegistro.texto.sizeToFit()
                 vcSemRegistro.texto.text = "Sua busca por '\(String(describing: searchController.searchBar.text!))' não resultou em nunhum resultado."
                 collectionView.backgroundView = vcSemRegistro
+                return 0
                 
             }else{
                 let vcError = Error.instanceFromNib()
                 collectionView.backgroundView = vcError
+                return 0
             }
         }
         

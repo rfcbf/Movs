@@ -26,6 +26,8 @@
 		8861EC622473345A0053F046 /* FiltroPrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC612473345A0053F046 /* FiltroPrincipalViewController.swift */; };
 		8861EC64247337C90053F046 /* FiltroBuscaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC63247337C90053F046 /* FiltroBuscaTableViewController.swift */; };
 		8861EC66247349500053F046 /* Generos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC65247349500053F046 /* Generos.swift */; };
+		8861EC6924742B3E0053F046 /* HeaderFavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8861EC6724742B3E0053F046 /* HeaderFavTableViewCell.swift */; };
+		8861EC6A24742B3E0053F046 /* HeaderFavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8861EC6824742B3E0053F046 /* HeaderFavTableViewCell.xib */; };
 		88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */; };
 		888C2E522471E12C0067491F /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E502471E12C0067491F /* Movs.xcdatamodeld */; };
 		888C2E5B2471E2420067491F /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 888C2E5A2471E2420067491F /* Model.xcmappingmodel */; };
@@ -88,6 +90,8 @@
 		8861EC612473345A0053F046 /* FiltroPrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroPrincipalViewController.swift; sourceTree = "<group>"; };
 		8861EC63247337C90053F046 /* FiltroBuscaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroBuscaTableViewController.swift; sourceTree = "<group>"; };
 		8861EC65247349500053F046 /* Generos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generos.swift; sourceTree = "<group>"; };
+		8861EC6724742B3E0053F046 /* HeaderFavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFavTableViewCell.swift; sourceTree = "<group>"; };
+		8861EC6824742B3E0053F046 /* HeaderFavTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFavTableViewCell.xib; sourceTree = "<group>"; };
 		88742523246DA038000EA6E7 /* FilmesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmesCollectionViewCell.swift; sourceTree = "<group>"; };
 		888C2E512471E12C0067491F /* Movs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movs.xcdatamodel; sourceTree = "<group>"; };
 		888C2E532471E1870067491F /* Favoritos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favoritos+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -249,6 +253,8 @@
 				88FD4FDF2471966C00C10BC9 /* OutrosTableViewCell.swift */,
 				888C2E5E2471EE8D0067491F /* FavoritosTableViewCell.swift */,
 				8861EC5F247333980053F046 /* FiltroTableViewCell.swift */,
+				8861EC6724742B3E0053F046 /* HeaderFavTableViewCell.swift */,
+				8861EC6824742B3E0053F046 /* HeaderFavTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				8825E856246CB0C400002FC3 /* Filmes.storyboard in Resources */,
 				8825E832246C9D9300002FC3 /* LaunchScreen.storyboard in Resources */,
 				8825E82F246C9D9300002FC3 /* Assets.xcassets in Resources */,
+				8861EC6A24742B3E0053F046 /* HeaderFavTableViewCell.xib in Resources */,
 				8861EC5D24732CA30053F046 /* Error.xib in Resources */,
 				8825E858246CB17700002FC3 /* Favoritos.storyboard in Resources */,
 				88CE347D246F13EB00A62E2C /* Detail.storyboard in Resources */,
@@ -490,6 +497,7 @@
 				88CE347F246F18B600A62E2C /* DetailViewController.swift in Sources */,
 				888C2E5D2471EE020067491F /* FavoritosViewController.swift in Sources */,
 				88FD4FDE24718EBD00C10BC9 /* GenerosTableViewCell.swift in Sources */,
+				8861EC6924742B3E0053F046 /* HeaderFavTableViewCell.swift in Sources */,
 				88742524246DA038000EA6E7 /* FilmesCollectionViewCell.swift in Sources */,
 				8861EC64247337C90053F046 /* FiltroBuscaTableViewController.swift in Sources */,
 				88FD4FE02471966C00C10BC9 /* OutrosTableViewCell.swift in Sources */,

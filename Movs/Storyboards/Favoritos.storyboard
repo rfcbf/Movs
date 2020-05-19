@@ -96,6 +96,7 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="OHg-5Q-rCd" id="b9k-wu-Zly"/>
                                     <outlet property="delegate" destination="OHg-5Q-rCd" id="asE-zg-UUP"/>
@@ -104,10 +105,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="leading" secondItem="dsQ-gA-6Ye" secondAttribute="leading" id="C7M-Lb-cbQ"/>
-                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="trailing" secondItem="dsQ-gA-6Ye" secondAttribute="trailing" id="JfA-e4-YXg"/>
-                            <constraint firstAttribute="bottom" secondItem="JZ8-VE-bL7" secondAttribute="bottom" id="ng0-51-3Nq"/>
-                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="top" secondItem="bhE-aA-tyF" secondAttribute="top" id="oAc-QC-Ffb"/>
+                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="top" secondItem="bhE-aA-tyF" secondAttribute="top" id="QHd-rK-lQa"/>
+                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="trailing" secondItem="dsQ-gA-6Ye" secondAttribute="trailing" id="iyf-a3-FBX"/>
+                            <constraint firstAttribute="bottom" secondItem="JZ8-VE-bL7" secondAttribute="bottom" id="k5g-b0-Z7a"/>
+                            <constraint firstItem="JZ8-VE-bL7" firstAttribute="leading" secondItem="dsQ-gA-6Ye" secondAttribute="leading" id="wIY-DC-fCr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsQ-gA-6Ye"/>
                     </view>
@@ -119,6 +120,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnFiltro" destination="iIG-er-aqX" id="jGR-s5-oa4"/>
                         <outlet property="tableView" destination="JZ8-VE-bL7" id="fNo-Fe-rQ9"/>
                     </connections>
                 </viewController>

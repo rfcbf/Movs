@@ -82,7 +82,7 @@ class FiltroBuscaTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if self.lastSelection != nil {
-            print(resultado[self.lastSelection.row])
+            //print(resultado[self.lastSelection.row])
         }
         
     }

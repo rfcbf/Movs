@@ -56,9 +56,7 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
     }
     
     func recuperarDados(){
-        
-        let generos : [Generos] = Genero.getTodosGenerosFavoritados()
-        
+                
         if !filtrandoDados {
             favoritos = Favoritos.getTodosFavoritos()
             favoritos.sort {$0.title < $1.title}

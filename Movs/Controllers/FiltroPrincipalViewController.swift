@@ -106,6 +106,12 @@ class FiltroPrincipalViewController: UIViewController, filtroDelegate {
             let botaoAlerta = UIAlertAction(title: "OK", style: .default, handler: nil)
             alerta.addAction(botaoAlerta)
             present(alerta, animated: true, completion: nil)
+        }else if ano != "" , genero.title == ""{
+            delegate?.dadosRecebidoFiltro(ano: ano, genero: "")
+            _ = navigationController?.popViewController(animated: true)
+        }else if ano == "" , genero.title != ""{
+            delegate?.dadosRecebidoFiltro(ano: "", genero: String(genero.id))
+            _ = navigationController?.popViewController(animated: true)
         }else{
             delegate?.dadosRecebidoFiltro(ano: ano, genero: String(genero.id))
             _ = navigationController?.popViewController(animated: true)

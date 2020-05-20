@@ -59,7 +59,9 @@ class FilmesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.collection.reloadData()
+        searchController.isActive = false
+        collection.backgroundView = UIView.init()
+        restorarDados()
     }
     
     func carregandoDados(pag: Int){
@@ -155,6 +157,8 @@ extension FilmesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        collectionView.backgroundView  = UIView.init()
+        
         if filtro.count == 0 {
             if filtrandoDados {
                 

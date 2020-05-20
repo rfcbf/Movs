@@ -53,9 +53,11 @@ class FavoritosViewController: UIViewController, pesquisaDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if !filtroPesquisa {
+        
+        searchController.isActive = false
+        tableView.backgroundView = UIView.init()
+        
             recuperarDados()
-        }
     }
     
     func recuperarDados(){

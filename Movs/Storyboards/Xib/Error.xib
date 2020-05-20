@@ -23,7 +23,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum favorito encontrado." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="igC-vN-AOW">
                     <rect key="frame" x="20" y="425" width="374" height="72"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                    <color key="textColor" red="0.15886801480000001" green="0.17301428320000001" blue="0.25401523710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

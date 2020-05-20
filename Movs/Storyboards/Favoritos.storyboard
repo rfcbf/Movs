@@ -193,9 +193,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X22-YH-kFW">
-                                                    <rect key="frame" x="283" y="19" width="99" height="21"/>
+                                                    <rect key="frame" x="179" y="19" width="203" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="99" id="2wm-0V-PPr"/>
+                                                        <constraint firstAttribute="width" constant="203" id="2wm-0V-PPr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.87708777189999998" green="0.72775429489999999" blue="0.31939977409999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
